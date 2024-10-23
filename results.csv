@@ -1,0 +1,14 @@
+SampleType,Result,Method,BacterialSpecies,FungalSpecies,Percentage
+Plant Tissue,Fusarium spp.,Mycological Examination,,Crassifilum sonorensis,22.9
+Plant Tissue,Cladosporium spp.,Mycological Examination,,Cladosporium basi-inflatum,9.4
+Plant Tissue,Colletotrichum spp.,Mycological Examination,,Colletotrichum proteae,8.0
+Plant Tissue,Alternaria spp.,Mycological Examination,,Alternaria prunicola,1.3
+Plant Tissue,Pantoea agglomerans,Bacterial Examination,Pantoea agglomerans,,4.8
+Plant Tissue,,Mycological Examination,,Fusarium tricinctum,34.1
+Plant Tissue,,Mycological Examination,,Gloeocapsopsis crepidinum,10.0
+Plant Tissue,,Mycological Examination,,Papiliotrema flavescens,8.0
+Plant Tissue,,Mycological Examination,,Fusarium magnoliae-champaca,5.9
+Plant Tissue,,Mycological Examination,,Gloeocapsopsis dulcis,4.3
+Plant Tissue,,Mycological Examination,,Aureobasidium pullulans,4.3
+Plant Tissue,,Bacterial Examination,Pantoea ananatis,,1.0
+Plant Tissue,,Bacterial Examination,Pantoea anthophila,,1.4
