@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microbiome Research Report</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        h1, h2 { text-align: center; }
+    </style>
+</head>
+<body>
+
+<h1>Microbiome Research Report</h1>
+
+<h2>Sample Information</h2>
+<p>Sample Type: Plant Tissue (Leaf, Fruit, Stem)</p>
+<p>Registration Number: 0071</p>
+<p>Sample Received Date: 30.09.2024</p>
+<p>Report Date: 07.10.2024</p>
+
+<h2>Results</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Test Type</th>
+            <th>Result</th>
+            <th>Method</th>
+        </tr>
+    </thead>
+    <tbody id="test-results"></tbody>
+</table>
+
+<h2>Microbiological Report</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Species</th>
+            <th>Percentage</th>
+        </tr>
+    </thead>
+    <tbody id="microbiological-report"></tbody>
+</table>
+
+<script>
+    // Load and parse the CSV file
+    Papa.parse('results.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            const data = results.data;
+            let testResults = '';
+            let microReport = '';
+
+            data.forEach(row => {
+                // Add test results
+                if (row.SampleType && row.Result && row.Method) {
+                    testResults += `<tr>
+                        <td>${row.SampleType}</td>
+                        <td>${row.Result}</td>
+                        <td>${row.Method}</td>
+                    </tr>`;
+                }
+
+                // Add microbiological report
+                if (row.BacterialSpecies || row.FungalSpecies) {
+                    microReport += `<tr>
+                        <td>${row.BacterialSpecies ? 'Bacterial' : 'Fungal'}</td>
+                        <td>${row.BacterialSpecies || row.FungalSpecies}</td>
+                        <td>${row.Percentage}</td>
+                    </tr>`;
+                }
+            });
+
+            // Insert the results into the HTML table
+            document.getElementById('test-results').innerHTML = testResults;
+            document.getElementById('microbiological-report').innerHTML = microReport;
+        },
+        error: function(error) {
+            console.error('Error loading CSV data:', error);
+        }
+    });
+</script>
+
+</body>
+</html>
